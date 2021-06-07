@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer;
+                // 코드 리팩토링 ! 1. a 와 b 비교 -> 박스에 넣기 2. 박스값과 c 비교 -> 박스에 넣기
+                if (a < b) answer = a
+                else answer = b
+                if (c < answer) answer = c
+                return answer;
+            }
+
+            console.log(solution(6, 5, 11));
+        </script>
+    </body>
+</html>
