@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer="";
+                let reverse_s;
+                let arr1=[],arr2=[];
+
+                for(let i=0;i<s.length;i++){
+                    arr1[i]=0;
+                    arr2[i]=0;
+                }
+                //1. 정방향으로 돌려 배열생성
+                for(let i=0;i<s.length;i++){
+                    for(let j=i;j<s.length;j++){
+                        if (s[j]!==t) arr1[i]++;
+                        else break; 
+                    }
+                }
+                //2. 역방향으로 돌려 배열생성
+                reverse_s=s.split('').reverse().join('');
+                for(let i=0;i<s.length;i++){
+                    for(let j=i;j<reverse_s.length;j++){
+                        if (reverse_s[j]!==t) arr2[i]++;
+                        else break; 
+                    }
+                }
+                arr2=arr2.reverse();
+
+                //3.arr1과 arr2의 비교 -> 작은거를 answer에 추가
+                for(let i=0;i<s.length;i++){
+                    if(arr1[i]<=arr2[i]) answer+=arr1[i];
+                    else answer+=arr2[i];
+                }
+
+
+                console.log(arr1);
+                console.log(arr2);
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
