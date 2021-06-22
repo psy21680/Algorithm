@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="";
+                let cnt=1;
+                let arr=[];
+                for(let i=0;i<s.length;i++){   // 횟수 카운트
+                    if(s[i-1]===s[i]) {
+                        cnt++;
+                        arr.push(cnt);
+                    }
+                    else{
+                        cnt=1;
+                        arr.push(cnt);
+                    }
+                }                                 
+                for(let i=0;i<arr.length;i++){ //카운트 1은 문자로 바꾸기
+                    if(arr[i]==1) {
+                        arr[i]=s[i];
+                    }
+                }
+                for(let i=0;i<arr.length;i++){
+                    if(arr[i]+1!==arr[i+1]) answer+=arr[i];
+                }
+                
+
+                console.log(arr);
+                console.log(answer);
+            }
+            
+            let str="KKHSSSSSSSE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
